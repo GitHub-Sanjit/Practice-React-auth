@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/UserContext";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  // console.log("createUser", createUser);
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -9,11 +12,21 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(name, password, email);
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log("registered user", user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
+
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col ">
+        <div className="hero-content flex-col">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Please Register now!</h1>
           </div>
@@ -54,16 +67,22 @@ const Register = () => {
                   className="input input-bordered"
                   required
                 />
+                <label className="label">
+                  <Link to="/login" className="label-text-alt link link-hover">
+                    Already, have an account?
+                  </Link>
+                </label>
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Register</button>
               </div>
-              <label className="label">
-                <Link to="/login" className="label-text-alt link link-hover">
-                  Already Have an Account?
-                </Link>
-              </label>
             </form>
+            <button
+              // onClick={handleGoogleSignIn}
+              className="btn btn-outline btn-success"
+            >
+              Google
+            </button>
           </div>
         </div>
       </div>
