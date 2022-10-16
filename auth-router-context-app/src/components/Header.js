@@ -22,7 +22,7 @@ const Header = () => {
           Register
         </Link>
 
-        {user.displayName && <span>Welcome {user.displayName}</span>}
+        {user?.email && <span>Welcome {user.email}</span>}
       </div>
     </div>
   );
