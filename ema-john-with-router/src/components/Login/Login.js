@@ -5,7 +5,7 @@ import "./Login.css";
 const Login = () => {
   return (
     <div className="form-container">
-      <h2 className="form-title">Login</h2>
+      <h2 className="form-title">Log In</h2>
       <form>
         <div className="form-control">
           <label htmlFor="email">Email</label>
@@ -27,7 +27,7 @@ const Login = () => {
             required
           />
         </div>
-        <input className="btn-submit" type="submit" value="Login" />
+        <input className="btn-submit" type="submit" value="Log In" />
       </form>
       <p>
         New to ema john <Link to="/signup">Create a New Account</Link>
