@@ -5,6 +5,8 @@ const Shipping = () => {
   return (
     <div>
       <h2>Shipping Page</h2>
+      <p>Delivery on the way!!!!!</p>
+      <p><small>Coming Soon......</small></p>
     </div>
   );
 };
